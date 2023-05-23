@@ -6,11 +6,12 @@ class Abonat_Skype_Extern : public Abonat_Skype
   std::string tara;
 
 public:
-  Abonat_Skype_Extern();
+  Abonat_Skype_Extern() = default;
+  virtual ~Abonat_Skype_Extern() = default;
+
   Abonat_Skype_Extern(const std::string other_tara, const std::string other_id_skype, const std::string other_nr_telefon, const int other_id, const std::string other_nume);
   Abonat_Skype_Extern(const std::string other_tara, const Abonat_Skype& other_abonat_skype);
   Abonat_Skype_Extern(const Abonat_Skype_Extern& other);
-  virtual ~Abonat_Skype_Extern();
 
   void show() override;
   std::string getName() override;

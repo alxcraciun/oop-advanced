@@ -7,11 +7,12 @@ protected:
   std::string adresa_mail;
 
 public:
-  Abonat_Skype_Romania();
+  Abonat_Skype_Romania() = default;
+  virtual ~Abonat_Skype_Romania() = default;
+
   Abonat_Skype_Romania(const std::string other_adresa_mail, const std::string other_id_skype, const std::string other_nr_telefon, const int other_id, const std::string other_nume);
   Abonat_Skype_Romania(const std::string other_adresa_mail, const Abonat_Skype& other_abonat_skype);
   Abonat_Skype_Romania(const Abonat_Skype_Romania& other);
-  virtual ~Abonat_Skype_Romania();
 
   void show() override;
   std::string getName() override;

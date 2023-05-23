@@ -9,19 +9,19 @@ void Agenda<T>::show()
   for (auto i : lista_abonati)
   {
     std::cout << counter << ")\n";
-    if (typeid(i) == typeid(Abonat_Skype))
+    if (typeid(*i) == typeid(Abonat_Skype))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype>(i);
       aux->show();
     }
-    else if (typeid(i) == typeid(Abonat_Skype_Romania))
+    else if (typeid(*i) == typeid(Abonat_Skype_Romania))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype_Romania>(i);
       aux->show();
     }
-    else if (typeid(i) == typeid(Abonat_Skype_Extern))
+    else if (typeid(*i) == typeid(Abonat_Skype_Extern))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype>(i);
@@ -91,7 +91,7 @@ Agenda<T>& Agenda<T>::operator[](const std::string& other_nume)
 
   for (auto x : lista_abonati)
   {
-    if (typeid(x) == typeid(Abonat_Skype_Extern))
+    if (typeid(*x) == typeid(Abonat_Skype_Extern))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype_Extern>(x);
@@ -102,7 +102,7 @@ Agenda<T>& Agenda<T>::operator[](const std::string& other_nume)
         break;
       }
     }
-    else if (typeid(x) == typeid(Abonat_Skype_Romania))
+    else if (typeid(*x) == typeid(Abonat_Skype_Romania))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype_Romania>(x);
@@ -113,7 +113,7 @@ Agenda<T>& Agenda<T>::operator[](const std::string& other_nume)
         break;
       }
     }
-    else if (typeid(x) == typeid(Abonat_Skype))
+    else if (typeid(*x) == typeid(Abonat_Skype))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype>(x);
@@ -136,7 +136,7 @@ Agenda<T>& Agenda<T>::operator[](const std::string& other_nume)
   }
 
   if (found == false)
-    throw std::invalid_argument("Abonatul cu numele accesat nu exista in Agenda<T>");
+    throw std::invalid_argument("Abonatul cu numele accesat nu exista in Agenda");
 
   return *this;
 }
@@ -148,19 +148,19 @@ std::ostream& operator<<(std::ostream& stream, const Agenda<T>& obj)
   for (auto i : obj.lista_abonati)
   {
     std::cout << counter << ")\n";
-    if (typeid(i) == typeid(Abonat_Skype))
+    if (typeid(*i) == typeid(Abonat_Skype))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype>(i);
       aux->show();
     }
-    else if (typeid(i) == typeid(Abonat_Skype_Romania))
+    else if (typeid(*i) == typeid(Abonat_Skype_Romania))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype_Romania>(i);
       aux->show();
     }
-    else if (typeid(i) == typeid(Abonat_Skype_Extern))
+    else if (typeid(*i) == typeid(Abonat_Skype_Extern))
     {
       std::shared_ptr<T> aux;
       aux = std::dynamic_pointer_cast<Abonat_Skype>(i);

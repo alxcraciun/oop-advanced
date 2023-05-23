@@ -1,9 +1,5 @@
 #include "include/Abonat.h"
 
-Abonat::Abonat()
-{
-}
-
 Abonat::Abonat(const std::string other_nr_telefon, const int id, const std::string nume)
   : Persoana(id, nume)
 {
@@ -20,10 +16,6 @@ Abonat::Abonat(const Abonat& other)
     : Persoana(other)
 {
   nr_telefon = other.nr_telefon;
-}
-
-Abonat::~Abonat()
-{
 }
 
 void Abonat::show()

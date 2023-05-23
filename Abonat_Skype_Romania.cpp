@@ -1,34 +1,24 @@
 #include "include/Abonat_Skype_Romania.h"
 
-Abonat_Skype_Romania::Abonat_Skype_Romania()
-{
-}
-
 Abonat_Skype_Romania::Abonat_Skype_Romania(const std::string other_adresa_mail, const std::string other_id_skype, const std::string other_nr_telefon, const int other_id, const std::string other_nume)
-    : Abonat_Skype(other_id_skype, other_nr_telefon, other_id, other_nume)
+    : Abonat_Skype(other_id_skype, other_nr_telefon, other_id, other_nume), adresa_mail(other_adresa_mail)
 {
-  adresa_mail = other_adresa_mail;
 }
 
 Abonat_Skype_Romania::Abonat_Skype_Romania(const std::string other_adresa_mail, const Abonat_Skype& other_abonat_skype)
-    : Abonat_Skype(other_abonat_skype)
+    : Abonat_Skype(other_abonat_skype), adresa_mail(other_adresa_mail)
 {
-  adresa_mail = other_adresa_mail;
 }
 
 Abonat_Skype_Romania::Abonat_Skype_Romania(const Abonat_Skype_Romania& other)
-{
-  adresa_mail = other.adresa_mail;
-}
-
-Abonat_Skype_Romania::~Abonat_Skype_Romania()
+  : Abonat_Skype(other), adresa_mail(other.adresa_mail)
 {
 }
 
 void Abonat_Skype_Romania::show()
 {
   std::cout << "Persoana '" << nume << "' are ID-ul " << id << std::endl;
-  std::cout << "Fiind Abonat Skype Romania, are: \nNr. Telefon: " << nr_telefon << "\nID Skype: " << id_skype << "\nAdresa de mail: " << std::endl;
+  std::cout << "Fiind Abonat Skype Romania, are: \nNr. Telefon: " << nr_telefon << "\nID Skype: " << id_skype << "\nAdresa de mail: " << adresa_mail << std::endl;
 }
 
 std::string Abonat_Skype_Romania::getName()
@@ -96,7 +86,7 @@ std::istream& operator>>(std::istream& stream, Abonat_Skype_Romania& obj)
 std::ostream& operator<<(std::ostream& stream, const Abonat_Skype_Romania& obj)
 {
   stream << "Persoana '" << obj.nume << "' are ID-ul " << obj.id << std::endl;
-  stream << "Fiind Abonat Skype Romania, are: \nNr. Telefon: " << obj.nr_telefon << "\nID Skype: " << obj.id_skype << "\nAdresa de mail: " << std::endl;
+  stream << "Fiind Abonat Skype Romania, are: \nNr. Telefon: " << obj.nr_telefon << "\nID Skype: " << obj.id_skype << "\nAdresa de mail: " << obj.adresa_mail << std::endl;
 
   return stream;
 }

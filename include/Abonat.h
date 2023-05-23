@@ -7,11 +7,11 @@ protected:
   std::string nr_telefon;
 
 public:
-  Abonat();
+  Abonat() = default;
   Abonat(const std::string other_nr_telefon, const int other_id, const std::string other_nume);
   Abonat(const std::string other_nr_telefon, const Persoana& other_persoana);
   Abonat(const Abonat& other);
-  virtual ~Abonat();
+  virtual ~Abonat() = default ;
 
   virtual void show() override;
   virtual std::string getName();

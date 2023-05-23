@@ -1,34 +1,24 @@
 #include "include/Abonat_Skype_Extern.h"
 
-Abonat_Skype_Extern::Abonat_Skype_Extern()
-{
-}
-
 Abonat_Skype_Extern::Abonat_Skype_Extern(const std::string other_tara, const std::string other_id_skype, const std::string other_nr_telefon, const int other_id, const std::string other_nume)
-    : Abonat_Skype(other_id_skype, other_nr_telefon, other_id, other_nume)
+    : Abonat_Skype(other_id_skype, other_nr_telefon, other_id, other_nume), tara(other_tara)
 {
-  tara = other_tara;
 }
 
 Abonat_Skype_Extern::Abonat_Skype_Extern(const std::string other_tara, const Abonat_Skype& other_abonat_skype)
-    : Abonat_Skype(other_abonat_skype)
+    : Abonat_Skype(other_abonat_skype), tara(other_tara)
 {
-  tara = other_tara;
 }
 
 Abonat_Skype_Extern::Abonat_Skype_Extern(const Abonat_Skype_Extern& other)
-{
-  tara = other.tara;
-}
-
-Abonat_Skype_Extern::~Abonat_Skype_Extern()
+  : Abonat_Skype(other), tara(other.tara)
 {
 }
 
 void Abonat_Skype_Extern::show()
 {
   std::cout << "Persoana '" << nume << "' are ID-ul " << id << std::endl;
-  std::cout << "Fiind Abonat Skype Extern, are: \nNr. Telefon: " << nr_telefon << "\nID Skype: " << id_skype << "\nTara: " << std::endl;
+  std::cout << "Fiind Abonat Skype Extern, are: \nNr. Telefon: " << nr_telefon << "\nID Skype: " << id_skype << "\nTara: " << tara << std::endl;
 }
 
 std::string Abonat_Skype_Extern::getName()
@@ -86,7 +76,7 @@ std::istream& operator>>(std::istream& stream, Abonat_Skype_Extern& obj)
 std::ostream& operator<<(std::ostream& stream, const Abonat_Skype_Extern& obj)
 {
   stream << "Persoana '" << obj.nume << "' are ID-ul " << obj.id << std::endl;
-  stream << "Fiind Abonat Skype Extern, are: \nNr. Telefon: " << obj.nr_telefon << "\nID Skype: " << obj.id_skype << "\nTara: " << std::endl;
+  stream << "Fiind Abonat Skype Extern, are: \nNr. Telefon: " << obj.nr_telefon << "\nID Skype: " << obj.id_skype << "\nTara: " << obj.tara << std::endl;
 
   return stream;
 }

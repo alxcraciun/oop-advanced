@@ -1,28 +1,18 @@
 #include "include/Abonat_Skype.h"
 
-Abonat_Skype::Abonat_Skype()
-{
-}
-
 Abonat_Skype::Abonat_Skype(const std::string other_id_skype, const std::string other_nr_telefon, const int other_id, const std::string other_nume)
-  : Abonat(other_nr_telefon, other_id, other_nume)
+  : Abonat(other_nr_telefon, other_id, other_nume), id_skype(other_id_skype)
 {
-  id_skype = other_id_skype;
 }
 
 Abonat_Skype::Abonat_Skype(const std::string other_id_skype, const Abonat& other_abonat)
-  : Abonat(other_abonat)
+  : Abonat(other_abonat), id_skype(other_id_skype)
 {
-  id_skype = other_id_skype;
 }
+
 
 Abonat_Skype::Abonat_Skype(const Abonat_Skype& other)
-  : Abonat(other)
-{
-  id_skype = other.id_skype;
-}
-
-Abonat_Skype::~Abonat_Skype()
+  : Abonat(other), id_skype(other.id_skype)
 {
 }
 
